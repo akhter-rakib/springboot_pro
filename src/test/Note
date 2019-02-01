@@ -1,0 +1,32 @@
+Spring Boot Application Live Reload Hot Swap With Intellij Idea
+Apr 28, 2017
+
+Spring Boot Application Live Reload (Hot Swap) With Intellij IDEA
+While developing Spring Boot Applications using Intellij IDEA, it was so annoying to restart the Spring Boot app after each and every change. Spring Boot provides live reload (hot swap) of application out of the box using the following dependency.
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <optional>true</optional>
+</dependency>
+But it didn’t live reload the application/container, and the hot deployment didn’t work for changes. Further researching found that following changes needed to be done in order the hot deployment to be worked correctly.
+
+Open the Settings –> Build-Execution-Deployment –> Compiler
+
+and enable the Make Project Automatically.
+
+Then press ctrl+shift+A and search for the registry. In the registry, make the following configuration enabled.
+
+ compiler.automake.allow.when.app.running
+Reload Static content (html, css, js)
+
+Add this configuration to your Spring Boot Maven Plugin:
+
+ <configuration>
+     <addResources>true</addResources>
+ </configuration>
+Restart the IDE.
+
+That’s it! Now the hot deployment works, and you don’t have to restart manually after each and every change.
+
+In case of spring boot with thymeleaf there may be problem in reload html, css, js etc. In this case, we need to change run configuration in intelij like bellow:
