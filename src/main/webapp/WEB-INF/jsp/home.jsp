@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-md-8 col-lg-6 B">
                     <div class="card card-inverse card-primary">
-                        <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+                        <button type="button" class="btn btn-secondary btn-lg">Large</button>
                     </div>
                 </div>
             </div>
